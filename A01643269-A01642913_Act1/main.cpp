@@ -7,12 +7,15 @@ Autores:
 Gael Venegas Gómez - A01642913
 Arturo Ramos Martínez - A01643269 
 
-Fecha:
+Fecha: 14/Ago/2024
 
 */
 #include<iostream>
 using namespace std;
 
+// Función que combina dos mitades ordenadas en un solo arreglo ordenado.
+// Complejidad en tiempo: O(n), donde n es el número total de elementos a combinar.
+// Complejidad en espacio: O(n) debido a los arreglos temporales usados para almacenar las mitades.
 void merge(double* array, int mid, int left, int right){
     int lenL = mid - left +1; 
     int lenR = right - mid;
@@ -55,10 +58,14 @@ void merge(double* array, int mid, int left, int right){
     }
 }
 
+// Función que implementa el algoritmo Merge Sort usando recursión para dividir el arreglo y luego ordenarlo.
+//divide el arreglo en mitades hasta llegar al caso base indivisible y comienza a ordenar
+// Complejidad en tiempo: O(n log n) en todos los casos (mejor, promedio y peor caso).
+// Complejidad en espacio: O(n) debido al uso de memoria adicional para dividir y combinar las partes.
 void mergeSort(double* array, int left, int right){
     int mid;
     if (left < right){
-        mid = (left + right)/2;
+        mid = left + (right - left) / 2;
         mergeSort(array, left, mid);
         mergeSort(array, mid+1, right);
         merge(array, mid, left, right);
@@ -77,7 +84,7 @@ int main(){
     mergeSort(array, 0, n - 1);
     cout <<"[";
     for(int i = 0; i < n; i++){
-        cout<<array[i]<<", ";
+        cout<<array[i]<<" ";
     }
     cout <<"]";
     return 0;
