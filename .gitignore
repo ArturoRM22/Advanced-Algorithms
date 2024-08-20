@@ -1,4 +1,5 @@
 **/output/
+*/a.out
 /.vscode
 Factorial.cpp
 *.zip
