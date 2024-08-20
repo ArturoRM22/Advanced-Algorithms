@@ -25,6 +25,11 @@ map<int, int> coinChangeDP(vector<int>& den, int p, int q) {
             }
         }
     }
+
+    if(result[change] == INT_MAX){
+        return output;
+    }
+
     // Encontar las denominaciones usadas para la solución final.
     while(change > 0) {
         if(output.find(coin_used[change]) != output.end()){
