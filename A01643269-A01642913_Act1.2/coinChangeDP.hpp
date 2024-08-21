@@ -25,12 +25,13 @@ map<int, int> coinChangeDP(vector<int>& den, int p, int q) {
             }
         }
     }
-
     if(result[change] == INT_MAX){
         return output;
     }
-
+    //cout << "ggs: " <<endl;
     // Encontar las denominaciones usadas para la solución final.
+    //cout<<change<<endl;
+    int change_aux = 0;
     while(change > 0) {
         if(output.find(coin_used[change]) != output.end()){
             output[coin_used[change]]++;
@@ -38,6 +39,12 @@ map<int, int> coinChangeDP(vector<int>& den, int p, int q) {
             output[coin_used[change]] = 1;
         }
         change -= coin_used[change];
+        if(change == change_aux){
+            cout << "no es posible dar cambio debido a las denominaciones" << endl;
+            break;
+        }
+        //cout<<change<<endl;
+        change_aux = change;
     }
     return output;
 }

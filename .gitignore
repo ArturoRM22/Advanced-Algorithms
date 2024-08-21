@@ -1,5 +1,6 @@
 **/output/
 */a.out
-/.vscode
+*/.vscode
+settings.json
 Factorial.cpp
 *.zip
