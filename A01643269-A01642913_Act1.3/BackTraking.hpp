@@ -9,14 +9,14 @@ bool isValid(int row, int col, int numRows, int numCols){
 
 vector<vector<int>> backTraking(vector<vector<int>>& matrix){
     stack<vector<int>> path;
-    int len_m = matrix.size();
-    int len_n = matrix[0].size(); 
+    int len_m = matrix[0].size();
+    int len_n = matrix.size(); 
     int m = 0;
     int n = 0;
     bool pathFound = false;
     int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // Directions
-    vector<vector<int>> validPos;
     do{
+
         for(auto d : directions){
             int new_m = m + d[0];
             int new_n = n + d[1];
@@ -37,7 +37,6 @@ vector<vector<int>> backTraking(vector<vector<int>>& matrix){
         }
 
         pathFound = false;
-        validPos = {};
 
         if(m == len_m-1 && n == len_n-1){
             break; 

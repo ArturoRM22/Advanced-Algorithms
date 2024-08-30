@@ -8,6 +8,10 @@ int main(){
     int n;
     cin>>m;
     cin>>n;
+    if(m == 1 && n == 1){
+        cout << "No se require de una solución para le laberinto" << endl;
+        return 0;
+    }
     vector<vector<int>> maze(n, vector<int>(m));
 
     for (int i = 0; i < m; i++){
