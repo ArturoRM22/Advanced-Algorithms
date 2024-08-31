@@ -4,30 +4,34 @@ using namespace std;
 #include"BackTraking.hpp"
 
 int main(){
-    int m;
-    int n;
-    cin>>m;
-    cin>>n;
-    if(m == 1 && n == 1){
-        cout << "No se require de una solución para le laberinto" << endl;
+    int m, n;
+    cin >> m >> n;
+    if((m == 1 && n == 1) || (m == 1 && n == 2)){
+        cout << "Solución no requerida para laberinto de 1x1 o 1x2." << endl;
         return 0;
     }
-    vector<vector<int>> maze(n, vector<int>(m));
+
+    vector<vector<int>> maze(m, vector<int>(n)); 
 
     for (int i = 0; i < m; i++){
         for(int j = 0; j < n; j++){
-            cin>>maze[i][j];
+            cin >> maze[i][j];
         }
     }
 
-    int len_m = maze.size();
-    int len_n = maze[0].size();
-    vector<vector<int>> solution = backTraking(maze);
+    vector<vector<int>> solution = backTracking(maze);
+
+    if (!solution.size()){
+        cout << "No se encontró una solución" << endl;
+        return 0;
+    }
+
     for (int i = 0; i < m; i++){
         for(int j = 0; j < n; j++){
             cout << solution[i][j] << " "; 
         }
         cout << endl;
     }
+
     return 0;
 }
