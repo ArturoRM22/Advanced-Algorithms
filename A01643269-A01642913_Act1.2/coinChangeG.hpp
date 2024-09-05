@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-
+/*El algoritmo ávaro toma la mejor decisión local, tomando la modea más grande siempre que pueda*/
 vector<vector<int>> coinChangeG(vector<int>& den, int p, int q){ //Greedy
     vector<vector<int>> coins;
     int len = den.size()-1;

@@ -1,3 +1,49 @@
+/* 
+Descripción: 
+Implementación de algoritmos ávaros y de programación dinámica para resolver el problema del cambio de monedas
+Complejidades:
+Solución DP: tiempo O(n*m), espacio O(n)
+Solución Greedy: tiempo O(m), espacio O(1)
+Autores: 
+Gael Venegas Gómez - A01642913
+Arturo Ramos Martínez - A01643269 
+
+Fecha: 21/Ago/2024
+*/
+
+/*SOLUCIÓN ALTERNA PARA COIN CHANGE DP (cada uno hizo su propia versión)
+int coinChange(vector<int>& coins, int p, int q, vector<int>& selectedCoins) {
+    if (p == q) return 0; 
+
+    int n = q - p;
+    vector<int> dp(n + 1, INT_MAX);
+    vector<int> coinUsed(n + 1, -1); 
+    dp[0] = 0;
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 0; j < coins.size(); j++) {
+            if (i - coins[j] >= 0 && dp[i - coins[j]] != INT_MAX) {
+                if (dp[i] > dp[i - coins[j]] + 1) {
+                    dp[i] = dp[i - coins[j]] + 1;
+                    coinUsed[i] = j; 
+                }
+            }
+        }
+    }
+
+    if (dp[n] == INT_MAX) return -1;
+
+    int remainingAmount = n;
+    while (remainingAmount > 0) {
+        int coinIndex = coinUsed[remainingAmount];
+        selectedCoins.push_back(coins[coinIndex]); 
+        remainingAmount -= coins[coinIndex]; 
+    }
+
+    return dp[n];
+}
+*/
+
 #include<iostream>
 #include<vector>
 #include <algorithm>
