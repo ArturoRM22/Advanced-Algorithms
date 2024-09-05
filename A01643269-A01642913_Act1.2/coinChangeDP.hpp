@@ -3,7 +3,7 @@
 #include<climits> // int_max
 #include<map>
 using namespace std;
-
+/*La solución DP utiliza las soluciones anteriores para llegar a la solución óptima global*/
 map<int, int> coinChangeDP(vector<int>& den, int p, int q) {
     int change = q - p;
     map<int, int> output;
@@ -28,9 +28,7 @@ map<int, int> coinChangeDP(vector<int>& den, int p, int q) {
     if(result[change] == INT_MAX){
         return output;
     }
-    //cout << "ggs: " <<endl;
     // Encontar las denominaciones usadas para la solución final.
-    //cout<<change<<endl;
     int change_aux = 0;
     while(change > 0) {
         if(output.find(coin_used[change]) != output.end()){
@@ -43,7 +41,6 @@ map<int, int> coinChangeDP(vector<int>& den, int p, int q) {
             cout << "no es posible dar cambio debido a las denominaciones" << endl;
             break;
         }
-        //cout<<change<<endl;
         change_aux = change;
     }
     return output;
