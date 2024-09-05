@@ -12,7 +12,7 @@ bool isValid(int row, int col, int numRows, int numCols){
     return row >= 0 && row < numRows && col >= 0 && col < numCols;
 }
 
-vector<vector<int>> backTracking(vector<vector<int>>& matrix){
+vector<vector<int>> backTracking(vector<vector<int>> matrix){
     stack<pair<int, int>> path;
     int len_m = matrix.size(); 
     int len_n = matrix[0].size();

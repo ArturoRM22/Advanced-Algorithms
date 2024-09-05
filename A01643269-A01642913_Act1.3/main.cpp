@@ -1,7 +1,8 @@
 #include<iostream>
 using namespace std;
 #include<vector>
-#include"BackTraking.hpp"
+#include"BackTracking.hpp"
+//#include"BranchAndBound.hpp"
 
 int main(){
     int m, n;
@@ -12,14 +13,16 @@ int main(){
     }
 
     vector<vector<int>> maze(m, vector<int>(n)); 
-
     for (int i = 0; i < m; i++){
         for(int j = 0; j < n; j++){
             cin >> maze[i][j];
         }
     }
 
+    cout<< "Backtracking: " << endl;
+
     vector<vector<int>> solution = backTracking(maze);
+
 
     if (!solution.size()){
         cout << "No se encontró una solución" << endl;
@@ -32,6 +35,17 @@ int main(){
         }
         cout << endl;
     }
+
+    cout<< "Branch and Bound: " << endl;
+
+    //vector<vector<int>> solutionn = branchAndBound(maze);
+/* 
+    for (int i = 0; i < m; i++){
+        for(int j = 0; j < n; j++){
+            cout << solutionn[i][j] << " "; 
+        }
+        cout << endl;
+    } */
 
     return 0;
 }
