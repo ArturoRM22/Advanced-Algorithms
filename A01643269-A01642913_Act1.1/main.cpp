@@ -3,6 +3,7 @@ Descripción:
 Implementación del algoritmo de ordenamiento "Merge sort" el cual hace uso de la técnica "divide and conquer"
 y tiene una complejidad en el peor caso de O(n log n) en tiempo,
 y de O(n) en espacio, siendo n la cantidad de números o entradas. 
+Ambos algoritmos presentados, tanto el de ramificación y poda como el de retroceso (backtracking),tienen una complejidad de tiempo y espacio de O(n*m), donde n y m son las dimensiones de la matriz de entrada. Esto se debe a que, en el peor de los casos, ambos algoritmos podrían necesitar explorar cada celda de la matriz una vez. Aunque utilizan diferentes técnicas de optimización (ordenación de caminos en el primero, y una pila para el backtracking en el segundo), estas no afectan la complejidad del peor caso. El espacio adicional utilizado por ambos algoritmos también es proporcional al tamaño de la matriz de entrada, ya sea por la recursión o por la pila utilizada para almacenar el camino.
 Autores: 
 Gael Venegas Gómez - A01642913
 Arturo Ramos Martínez - A01643269 
