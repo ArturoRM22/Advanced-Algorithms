@@ -1,3 +1,10 @@
+/* 
+Complejidades:
+Tiempo:
+O(n*m)
+Espacio:
+O(n*m)
+ */
 #include<iostream>
 #include<vector>
 #include<utility>

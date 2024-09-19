@@ -1,3 +1,17 @@
+/* 
+Descripción: 
+Implementación del algoritmos Backtracking y branch and bound para resolver el problema del laberinto. 
+Backtracking: Va tomando cada posible camino y te devuelve el primero que encuentre. 
+Branch and Bound: Gracias a la distancia heuristica (manhattan) entre las posiciones y el objectivo que se toma en cuenta para cada 
+paso, se logra una optimización de la versión de backtracking, logrando econtrar la mejor solución más rápidamente.
+
+Autores: 
+Gael Venegas Gómez - A01642913
+Arturo Ramos Martínez - A01643269 
+
+Fecha: 05/Sep/2024 */
+
+
 #include<iostream>
 using namespace std;
 #include<vector>
