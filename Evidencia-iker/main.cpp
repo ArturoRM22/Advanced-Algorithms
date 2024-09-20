@@ -4,7 +4,7 @@
 #include <vector> 
 #include <algorithm>
 #include"KMP.hpp"
-#include"longestCommonSubsequence.hpp"
+#include"longestCommonString.hpp"
 using namespace std;
 
 string removeNewlines(const string& str) {
@@ -80,9 +80,7 @@ int main(){
     /* Parte 3 */
     string transmission1 = contentTransmissions[0];
     string transmission2 = contentTransmissions[1];
-    cout << contentTransmissions[0].size() << endl;
-    cout << contentTransmissions[1].size() << endl;
-    string LongestSTR = longestCommonSubsequence(transmission1, transmission2);
+    string LongestSTR = longestCommonString(transmission1, transmission2);
     cout << "Longest string: " + LongestSTR << endl;
 
     /* ------------------------------------------ */
