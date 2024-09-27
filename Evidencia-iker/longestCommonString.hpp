@@ -3,41 +3,59 @@
 #include <vector>
 using namespace std;
 
-
-
+/**
+ * Encuentra la cadena común más larga entre dos textos.
+ * 
+ * Complejidad de tiempo: O(n * m), donde 'n' es la longitud de text1 y 'm' es la longitud de text2.
+ * Complejidad de espacio: O(n * m), debido a la matriz DP utilizada para almacenar las longitudes de las cadenas comunes.
+ */
 string longestCommonString(const string& text1, const string& text2) {
-    int n = text1.size();
-    int m = text2.size();
-    vector<vector<int>> dp(n+1, vector<int>(m+1, 0));
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++){
-            if(text1[i-1] == text2[j-1]){
-                dp[i][j] = dp[i-1][j-1] + 1;
-            }else{
+    int n = text1.size();  // Tamaño del primer texto
+    int m = text2.size();  // Tamaño del segundo texto
+    
+    // Matriz DP para almacenar las longitudes de cadenas comunes
+    vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));  
+    
+    // Llenar la matriz DP comparando caracteres de ambos textos
+    for (int i = 1; i <= n; i++) {  
+        for (int j = 1; j <= m; j++) {  
+            if (text1[i - 1] == text2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+            } else {
                 dp[i][j] = 0;
             }
         }
     }
-    string result = "";
-    vector<int> pos_i, pos_j;
-    int max_len = 0;
+    // Complejidad de tiempo de la matriz DP: O(n * m)
 
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++){
-            if(dp[i][j] > max_len){
-                max_len = dp[i][j];
-                result = text1.substr(i-max_len, max_len);
-                pos_i.clear();
-                pos_j.clear();
-                pos_i.push_back(i-max_len);
-                pos_j.push_back(j-max_len);  
+    string result = "";
+    vector<int> posI, posJ;  // Vectores para almacenar las posiciones iniciales
+    int maxLen = 0;  // Longitud máxima de la cadena común
+
+    // Encontrar la cadena común más larga
+    for (int i = 1; i <= n; i++) {  
+        for (int j = 1; j <= m; j++) {  
+            if (dp[i][j] > maxLen) {
+                maxLen = dp[i][j];
+                result = text1.substr(i - maxLen, maxLen);  // Actualización del resultado
+
+                // Limpiar y almacenar nuevas posiciones
+                posI.clear();
+                posJ.clear();
+                posI.push_back(i - maxLen);
+                posJ.push_back(j - maxLen);
             }
         }
     }
-    
-    for (int i = 0; i < pos_i.size(); i++){
-        cout << "pos_i: " << pos_i[i] << " pos_j: " << pos_j[i] << endl;
+    // Complejidad de tiempo para encontrar la cadena más larga: O(n * m)
+
+    // Imprimir posiciones de inicio y final para ambas cadenas
+    for (int i = 0; i < posI.size(); i++) {  
+        cout << "transmission1: " << "Initial position: " << posI[i] + 1 
+            << " Final position: " << posI[i] + maxLen << endl;
+        cout << "transmission2: " << "Initial position: " << posJ[i] + 1 
+            << " Final position: " << posJ[i] + maxLen << endl;
     }
 
-    return result;
+    return result;  
 }
