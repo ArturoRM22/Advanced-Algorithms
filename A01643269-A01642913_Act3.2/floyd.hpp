@@ -18,10 +18,4 @@ void floyd(vector<vector<int>>& g){
       }
     }
   }
-  for (int t=0; t<v; t++){
-    for (int r=0; r<v; r++) {
-      cout << g[t][r] << " ";
-    } 
-    cout << endl;
-  }
 }
