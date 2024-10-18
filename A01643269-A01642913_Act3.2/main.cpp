@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include"dijkstra.hpp"
+#include"floyd.hpp"
 using namespace std;
 
 int main(){
@@ -25,6 +26,7 @@ int main(){
     }
     //Floyd
     cout << "Floyd:" << endl;
+    floyd(g);
 
     return 0;
 }
