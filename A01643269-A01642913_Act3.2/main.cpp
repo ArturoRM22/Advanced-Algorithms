@@ -51,12 +51,6 @@ int main(){
     }
     //Floyd
     cout << "Floyd:" << endl;
-    floydWarshall(g);
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            cout << g[i][j] << " ";
-        }
-        cout << endl;
-    }
+
     return 0;
 }
