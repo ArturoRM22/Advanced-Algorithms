@@ -5,3 +5,4 @@ settings.json
 Factorial.cpp
 *.zip
 *.exe
+**/CMakeFiles
