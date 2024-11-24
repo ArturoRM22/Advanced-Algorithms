@@ -81,7 +81,6 @@ int main(){
     string transmission1 = contentTransmissions[0];
     string transmission2 = contentTransmissions[1];
     string LongestSTR = longestCommonString(transmission1, transmission2);
-    cout << "Longest string: " + LongestSTR << endl;
 
     /* ------------------------------------------ */
     
