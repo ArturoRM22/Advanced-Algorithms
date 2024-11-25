@@ -3,10 +3,7 @@
 #include"TSP.hpp"
 #include"Prims.hpp"
 #include"EdmondsKarp.hpp"
-<<<<<<< HEAD
 #include"VoronoiDiagram.hpp"
-=======
->>>>>>> 3e90ee569b7a3a2b4374b9e249b8149e5af0d231
 using namespace std; 
 
 int main() {
@@ -28,20 +25,8 @@ int main() {
             cin >> capacities[i][j];
         }
     }
-<<<<<<< HEAD
     
     //----TSP----//
-=======
-
-    //------Prims------//
-    cout<<"Forma de cablear las colonias con fibra: "<< endl;
-    prim(n, distances);
-    cout<<endl;
-    //----------//
-
-    //----TSP----//
-    cout<<"Costo y ruta a seguir por el personal que reparte correspondencia: "<< endl;
->>>>>>> 3e90ee569b7a3a2b4374b9e249b8149e5af0d231
     COST_AND_PATH result = TSP(distances);
     cout << "Cost: " << result.cost << endl;
     cout << "Path: ";
@@ -50,13 +35,11 @@ int main() {
     }
     cout << endl;
     //----------//
-<<<<<<< HEAD
     
     //------Prims------//
     prim(n, distances);
     //----------//
 
-
     //Nodo inicial y final
     int source = 0;
     int sink = distances[0].size()-1;
@@ -64,34 +47,45 @@ int main() {
 
     // Calcular flujo máximo para el grafo
     int max_flow = maxFlow(capacities, source, sink);
-
     cout << "Flujo maximo: " << max_flow << endl;
 
     //----Voronoi----//
-
-
-=======
-
-
-    //------Flujo Máximo----//
-    cout<<endl;
-    cout<<"Valor de flujo máximo de información del nodo inicial al nodo final: "<< endl;
-    //Nodo inicial y final
-    int source = 0;
-    int sink = distances[0].size()-1;
-    cout << "Source: " << source << " Sink: " << sink << endl;
-
-    // Calcular flujo máximo para el grafo
-    int max_flow = maxFlow(capacities, source, sink);
-
-    cout << "Flujo maximo: " << max_flow << endl;
-    //----------//
+    vector<Point> points;
+    string line;
     
+    // Leer puntos para el diagrama de Voronoi
+    cout << "\nIngrese los puntos para el diagrama de Voronoi (formato: (x,y)):\n";
+    while (getline(cin, line)) {
+        if (line.empty()) break;
+        
+        stringstream ss(line);
+        double x, y;
+        char discard;
+        
+        if (ss >> discard >> x >> discard >> y >> discard) {
+            points.push_back({x, y});
+        }
+    }
 
-    //------Diagramas de voronoi----//
-    
-    //----------//
+    if (!points.empty()) {
+        vector<Region> voronoiRegions = constructVoronoiDiagram(points);
 
->>>>>>> 3e90ee569b7a3a2b4374b9e249b8149e5af0d231
+        cout << fixed;
+        cout.precision(2);
+        
+        cout << "\nResultados del diagrama de Voronoi:\n";
+        for (size_t i = 0; i < voronoiRegions.size(); ++i) {
+            cout << "Región #" << i + 1 << ": Sitio ("
+                 << voronoiRegions[i].site.x << ", "
+                 << voronoiRegions[i].site.y << ")" << endl;
+
+            cout << "Vértices: ";
+            for (const Point& vertex : voronoiRegions[i].vertices) {
+                cout << "(" << vertex.x << ", " << vertex.y << ") ";
+            }
+            cout << endl << endl;
+        }
+    }
+
     return 0;
 }
