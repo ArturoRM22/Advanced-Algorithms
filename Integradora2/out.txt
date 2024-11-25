@@ -1,0 +1,7 @@
+Cost: 73
+Path: 0 3 2 1 0 
+Edges in the MST:
+(A, B) with weight 16
+(B, C) with weight 18
+(C, D) with weight 7
+Total weight of MST: 41

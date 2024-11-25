@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include"TSP.hpp"
+#include"Prims.hpp"
 using namespace std; 
 
 //TSP struct
@@ -26,6 +27,7 @@ int main() {
         cout << city << " ";
     }
     cout << endl;
+    prim(n, distances);
     
     return 0;
 }
