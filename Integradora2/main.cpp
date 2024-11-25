@@ -1,3 +1,17 @@
+/* 
+Descripción: 
+Resolución de la actividad integradora número 2 a través de la implementación de algoritmos como Prims, 
+Edmonds Karp, Held-Karp y Voronoi. 
+
+Autores: 
+Gael Venegas Gómez - A01642913
+Arturo Ramos Martínez - A01643269 
+Edwin Iniguez Moncada - A01637064
+Iker Borja Rios - A01637972
+
+Fecha: 25/Nov/2024
+
+ */
 #include<iostream>
 #include<vector>
 #include"TSP.hpp"
@@ -26,7 +40,15 @@ int main() {
         }
     }
     
+
+    //------Prims------//
+    cout<<"- Forma de cablear las colonias con fibra: "<< endl;
+    prim(n, distances);
+    cout<<endl;
+    //----------//
+
     //----TSP----//
+    cout<<"- Costo y ruta a seguir por el personal que reparte correspondencia: "<< endl;
     COST_AND_PATH result = TSP(distances);
     cout << "Cost: " << result.cost << endl;
     cout << "Path: ";
@@ -36,10 +58,9 @@ int main() {
     cout << endl;
     //----------//
     
-    //------Prims------//
-    prim(n, distances);
-    //----------//
-
+    //------Flujo Máximo----//
+    cout<<endl;
+    cout<<"- Valor de flujo máximo de información del nodo inicial al nodo final: "<< endl;
     //Nodo inicial y final
     int source = 0;
     int sink = distances[0].size()-1;
@@ -47,14 +68,16 @@ int main() {
 
     // Calcular flujo máximo para el grafo
     int max_flow = maxFlow(capacities, source, sink);
+
     cout << "Flujo maximo: " << max_flow << endl;
+    //----------//
 
     //----Voronoi----//
     vector<Point> points;
     string line;
     
     // Leer puntos para el diagrama de Voronoi
-    cout << "\nIngrese los puntos para el diagrama de Voronoi (formato: (x,y)):\n";
+    //cout << "\nIngrese los puntos para el diagrama de Voronoi (formato: (x,y)):\n";
     while (getline(cin, line)) {
         if (line.empty()) break;
         
@@ -73,7 +96,8 @@ int main() {
         cout << fixed;
         cout.precision(2);
         
-        cout << "\nResultados del diagrama de Voronoi:\n";
+        cout << "\n -Resultados del diagrama de Voronoi:\n";
+        cout<<"Lista de polígonos"<<endl;
         for (size_t i = 0; i < voronoiRegions.size(); ++i) {
             cout << "Región #" << i + 1 << ": Sitio ("
                  << voronoiRegions[i].site.x << ", "
