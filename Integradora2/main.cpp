@@ -9,6 +9,7 @@ int main() {
     int n; // number of cities
     cin >> n;
     vector<vector<int>> distances(n, vector<int>(n));
+    vector<vector<int>> capacities(n, vector<int>(n));
     
     // Read distance matrix
     for(int i = 0; i < n; i++) {
@@ -16,7 +17,13 @@ int main() {
             cin >> distances[i][j];
         }
     }
-    
+
+    // Read capacity matrix
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            cin >> capacities[i][j];
+        }
+    }
 
     // Optionally get the path
     COST_AND_PATH result = TSP(distances);
@@ -26,6 +33,16 @@ int main() {
         cout << city << " ";
     }
     cout << endl;
+
+    //Nodo inicial y final
+    int source = 0;
+    int sink = distances[0].size()-1;
+    cout << "Source: " << source << " Sink: " << sink << endl;
+
+    // Calcular flujo máximo para el grafo
+    int max_flow = maxFlow(capacities, source, sink);
+
+    cout << "Flujo maximo: " << max_flow << endl;
     
     return 0;
 }
