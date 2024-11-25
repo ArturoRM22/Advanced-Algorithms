@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include"TSP.hpp"
+#include"EdmondsKarp.hpp"
 using namespace std; 
 
 //TSP struct
