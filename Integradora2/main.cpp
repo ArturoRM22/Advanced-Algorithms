@@ -5,8 +5,6 @@
 #include"EdmondsKarp.hpp"
 using namespace std; 
 
-//TSP struct
-
 int main() {
     int n; // number of cities
     cin >> n;
@@ -26,8 +24,15 @@ int main() {
             cin >> capacities[i][j];
         }
     }
-    
+
+    //------Prims------//
+    cout<<"Forma de cablear las colonias con fibra: "<< endl;
+    prim(n, distances);
+    cout<<endl;
+    //----------//
+
     //----TSP----//
+    cout<<"Costo y ruta a seguir por el personal que reparte correspondencia: "<< endl;
     COST_AND_PATH result = TSP(distances);
     cout << "Cost: " << result.cost << endl;
     cout << "Path: ";
@@ -36,12 +41,11 @@ int main() {
     }
     cout << endl;
     //----------//
-    
-    //------Prims------//
-    prim(n, distances);
-    //----------//
 
 
+    //------Flujo Máximo----//
+    cout<<endl;
+    cout<<"Valor de flujo máximo de información del nodo inicial al nodo final: "<< endl;
     //Nodo inicial y final
     int source = 0;
     int sink = distances[0].size()-1;
@@ -51,6 +55,12 @@ int main() {
     int max_flow = maxFlow(capacities, source, sink);
 
     cout << "Flujo maximo: " << max_flow << endl;
+    //----------//
     
+
+    //------Diagramas de voronoi----//
+    
+    //----------//
+
     return 0;
 }
