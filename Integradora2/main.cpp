@@ -25,8 +25,8 @@ int main() {
             cin >> capacities[i][j];
         }
     }
-
-    // Optionally get the path
+    
+    //----TSP----//
     COST_AND_PATH result = TSP(distances);
     cout << "Cost: " << result.cost << endl;
     cout << "Path: ";
@@ -34,6 +34,8 @@ int main() {
         cout << city << " ";
     }
     cout << endl;
+    //----------//
+
 
     //Nodo inicial y final
     int source = 0;
